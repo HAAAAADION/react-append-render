@@ -1,8 +1,8 @@
 {
   "name": "react-append-render",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "just react-append-render",
-  "main": "index.js",
+  "main": "babel/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
