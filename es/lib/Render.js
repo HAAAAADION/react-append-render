@@ -23,17 +23,17 @@ export default Containers => (class extends Component {
 
         component.map((v, k) => {
             let kk = -1;
-            v.map((val, key) => {
-                kk++;
-                if (tag && (val.tag === tag || val.associate === tag)){
-                    v = v.splice(kk, 1);
-                    component = component.set(k, v);
-                    kk--;
-                }else if (!tag) {
-                    component = component.set(k, List([]));
-                }
-            })
-        });
+        v.map((val, key) => {
+            kk++;
+        if (tag && (val.tag === tag || val.associate === tag)){
+            v = v.splice(kk, 1);
+            component = component.set(k, v);
+            kk--;
+        }else if (!tag) {
+            component = component.set(k, List([]));
+        }
+    })
+    });
 
         Render = Render.set('component', component);
         setState(Render);
@@ -47,12 +47,12 @@ export default Containers => (class extends Component {
         let kk = -1;
         component.map((v, k) => {
             kk++;
-            if (v.size <= 0){
-                this.removeElement(k);
-                component = immutableMapDel(component, kk);
-                kk--;
-            }
-        });
+        if (v.size <= 0){
+            this.removeElement(k);
+            component = immutableMapDel(component, kk);
+            kk--;
+        }
+    });
 
         Render = Render.set('component', component);
         setState(Render);
@@ -108,28 +108,28 @@ export default Containers => (class extends Component {
 
         component.map((v, k) => {
             const p = document.querySelector(`.${k}`) || this.builtElement('div', k);
-            const layerElement = <div className="in-render">{v.map((val, key) => val.com)}</div>;
+        const layerElement = <div className="in-render">{v.map((val, key) => val.com)}</div>;
 
-            if (layerElement === null) {
-                render(<noscript />, p);
+        if (layerElement === null) {
+            render(<noscript />, p);
+        } else {
+            if (layerElement) {
+                render(layerElement, p);
             } else {
-                if (layerElement) {
-                    render(layerElement, p);
-                } else {
-                    render(<div />, p);
-                }
+                render(<div />, p);
             }
-        });
+        }
+    });
 
         return this;
     }
     render() {
         return (
             <Containers
-                {...this.props}
-                _renderLayer={this._renderLayer}
-                _renderClose={this._close}
-            />
-        )
+        {...this.props}
+        _renderLayer={this._renderLayer}
+        _renderClose={this._close}
+    />
+    )
     }
 })
