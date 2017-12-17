@@ -1,5 +1,5 @@
 # react-append-render
-动态创建html标签，简化创建流程
+动态创建临时组件，简化创建流程
 
 # Installation
 `npm i react-append-render --save`
